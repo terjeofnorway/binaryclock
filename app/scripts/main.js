@@ -1,7 +1,9 @@
+/*global TimeHelper b:true*/
+
 class Application{
 
     constructor(){
-        //let timeHelper = new TimeHelper();
+        let timeHelper = new TimeHelper();
     }
 
 }
