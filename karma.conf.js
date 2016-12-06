@@ -15,6 +15,7 @@ module.exports = function(config) {
 
         // list of files / patterns to load in the browser
         files: [
+            'app/scripts/**/*.js',
             'test/**.js'
         ],
 
@@ -25,7 +26,7 @@ module.exports = function(config) {
 
 
         preprocessors: {
-            'src/**/*.js': ['babel'],
+            'app/scripts/**/*.js': ['babel'],
             'test/**/*.js': ['babel']
         },
         babelPreprocessor: {

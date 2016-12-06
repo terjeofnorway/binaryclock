@@ -23,20 +23,20 @@
     "uglify": "mkdirp dist/scripts -p && uglifyjs app/scripts/*.js -m -o dist/scripts/app.js && uglifyjs app/scripts/*.js -m -c -o dist/scripts/app.min.js",
     "imagemin": "imagemin app/images/* -o dist/images",
     "icons": "svgo -f app/images/icons && mkdirp dist/images -p && svg-sprite-generate -d app/images/icons -o dist/images/icons.svg",
-    "serve": "browser-sync start --server --files \"dist/css/*.css, dist/js/*.js, **/*.html, !node_modules/**/*.html\"",
+    "serve": "browser-sync start --server --start-path dist --files \"dist/css/*.css, dist/js/*.js, **/*.html, !node_modules/**/*.html\"",
     "build:html": "htmlmin app/*.html -o dist/index.html",
     "build:css": "npm run scss && npm run autoprefixer",
-    "build:js": "npm run lint && npm run uglify",
+    "build:js": "npm run lint && babel app/scripts/ | uglifyjs -m -o dist/scripts/app.js",
     "build:images": "npm run imagemin && npm run icons",
     "build:all": "npm run build:css && npm run build:js && npm run build:images",
     "build": "npm run build:all",
-    "watch:html": "htmlmin app/*.html -o dist/*.html",
-    "watch:css": "onchange \"appp/styles\" -- npm run build:css",
-    "watch:js": "onchange \"app/scripts\" -- npm run build:js",
-    "watch:images": "onchange \"app/images\" -- npm run build:images",
-    "watch:all": "npm-run-all -p serve watch:css watch:js watch:images",
+    "watch:html": "onchange 'app/*.html' -- npm run build:html",
+    "watch:css": "onchange 'app/styles/**/*.scss' -- npm run build:css",
+    "watch:js": "onchange 'app/scripts/**/*.js' -- npm run build:js",
+    "watch:images": "onchange 'app/images/*' -- npm run build:images",
+    "watch:all": "npm-run-all -p serve watch:css watch:js watch:images watch:html",
     "watch": "npm run watch:all",
-    "test": "karma start --singleRun"
+    "test": "karma start"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
@@ -69,5 +69,10 @@
     "svgo": "^0.6.6",
     "uglify-js": "^2.6.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "babel": "^6.5.2",
+    "babel-cli": "^6.18.0",
+    "babel-preset-latest": "^6.16.0",
+    "buble": "^0.14.2"
+  }
 }
