@@ -1,11 +1,13 @@
-/*global TimeHelper b:true*/
+/*global TimeKeeper, ClockFace b:true*/
 
 class Application{
 
     constructor(){
-        let timeHelper = new TimeHelper();
+        let timeHelper = new TimeKeeper();
+        let clockFace = new ClockFace();
     }
-
 }
 
-let app = new Application();
+if(window.__karma__ == undefined){
+    window.application = new Application();
+}
