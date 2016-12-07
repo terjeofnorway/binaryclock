@@ -27,6 +27,16 @@ class TimeKeeper{
         return [secondsStringArray[0].toString(2),secondsStringArray[1].toString(2)];
     }
 
+    getBinaryMap() {
+        let binaryClockMap = {
+            "hours":this.getBinaryHoursFromDate(this.currentDate),
+            "minutes":this.getBinaryMinutesFromDate(this.currentDate),
+            "seconds":this.getBinarySecondsFromDate(this.currentDate)
+        }
+
+        return binaryClockMap;
+    }
+
 
     get currentDate(){
         return this._currentDate;
@@ -36,7 +46,6 @@ class TimeKeeper{
         this._currentDate = newDate;
 
     }
-
 
 
     tick(){

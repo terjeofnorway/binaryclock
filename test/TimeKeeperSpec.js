@@ -71,4 +71,21 @@ describe('Testing the TimeKeeper', () =>{
     })
 
 
+    it('returns the correct binary clock map', () => {
+        let date = new Date(2017,0,1,18,43,22);
+        timeKeeper.currentDate = date;
+
+        let binaryMapControl = {
+            "hours":['1','1000'],
+            "minutes":['100','11'],
+            "seconds":['10','10']
+        }
+
+        let binaryMap = timeKeeper.getBinaryMap();
+
+        expect(binaryMap).toEqual(binaryMapControl);
+
+    })
+
+
 })

@@ -12,11 +12,8 @@ class Application{
     }
 
     tick(){
+        var binaryMap = this.timeHelper.getBinaryMap();
 
-        let binaryClock = [
-            this.timeHelper.getBinaryHoursFromDate(this.timeHelper.currentDate),
-            this.timeHelper.getBinaryMinutesFromDate(this.timeHelper.currentDate),
-            this.timeHelper.getBinarySecondsFromDate(this.timeHelper.currentDate)];
 
         this.timeHelper.tick();
 
