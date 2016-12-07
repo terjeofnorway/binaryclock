@@ -11,19 +11,29 @@ describe('Testing the TimeKeeper', () =>{
         expect(timeKeeper instanceof TimeKeeper).toBe(true);
     })
 
-    it('gets the correct hours', () => {
-        let hours = new Date().getHours();
-        expect(timeKeeper.getHours()).toEqual(hours);
+    it('splits a number into int array', () => {
+        let testNumber1 = 99;
+        let testNumber2 = 5;
+        expect(timeKeeper.splitNumber(testNumber1)).toEqual([9,9]);
+        expect(timeKeeper.splitNumber(testNumber2)).toEqual([0,5]);
     })
 
-    it('gets the correct minutes', () => {
-        let minutes = new Date().getMinutes();
-        expect(timeKeeper.getMinutes()).toEqual(minutes);
+    it('returns the correct binary clock array', () => {
+        let date1 = new Date(2017,0,1,14,32,33);
+        let binaryHours1 = timeKeeper.getBinaryHourFromDate(date1);
+        let binaryHoursControl1 = ['1','100'];
+
+        expect(binaryHours1).toEqual(binaryHoursControl1);
+
+
+
+        let date2 = new Date(2017,0,1,7,32,33);
+        let binaryHours2 = timeKeeper.getBinaryHourFromDate(date2);
+        let binaryHoursControl2 = ['0','111'];
+
+        expect(binaryHours2).toEqual(binaryHoursControl2);
+
     })
 
-    it('gets the correct seconds',() => {
-        let seconds = new Date().getSeconds();
-        expect(timeKeeper.getSeconds()).toEqual(seconds);
-    })
 
 })

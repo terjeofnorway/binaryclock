@@ -1,20 +1,27 @@
 class TimeKeeper{
 
+
     constructor(){
-
+        this.currentDate = new Date();
     }
 
-    getHours(){
-        return new Date().getHours();
+    splitNumber(number){
+        let numberString = number < 10 ? '0' + number.toString() : number.toString();
+        let numberArray = numberString.split('').map((t) => { return parseInt(t)});
 
+        return numberArray;
     }
 
-    getMinutes(){
-        return new Date().getMinutes();
+    getBinaryHourFromDate(date = this.currentDate){
+        let hourStringArray = this.splitNumber(date.getHours());
+
+
+
+        return [hourStringArray[0].toString(2),hourStringArray[1].toString(2)];
     }
 
-    getSeconds(){
-        return new Date().getSeconds();
+    tick(){
+        this.currentDate = new Date();
     }
 
 }

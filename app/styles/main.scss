@@ -26,7 +26,8 @@ body {
       transition: background-color 0.5s;
 
       &.on {
-        background-color: aqua;
+        background-color: rgba(248, 200, 200, 0.92);
+        filter:blur(10px);
       }
     }
   }
