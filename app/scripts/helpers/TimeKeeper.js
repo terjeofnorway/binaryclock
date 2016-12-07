@@ -2,12 +2,12 @@ class TimeKeeper{
 
 
     constructor(){
-        this.currentDate = new Date();
+        this._currentDate = new Date();
     }
 
     splitNumber(number){
         let numberString = number < 10 ? '0' + number.toString() : number.toString();
-        let numberArray = numberString.split('').map((t) => { return parseInt(t)});
+        let numberArray = numberString.split('').map((t) => { return parseInt(t);});
 
         return numberArray;
     }
@@ -25,6 +25,16 @@ class TimeKeeper{
     getBinarySecondsFromDate(date = this.currentDate){
         let secondsStringArray = this.splitNumber(date.getSeconds());
         return [secondsStringArray[0].toString(2),secondsStringArray[1].toString(2)];
+    }
+
+
+    get currentDate(){
+        return this._currentDate;
+    }
+
+    set currentDate(newDate){
+        this._currentDate = newDate;
+
     }
 
 

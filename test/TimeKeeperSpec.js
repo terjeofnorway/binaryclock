@@ -65,5 +65,10 @@ describe('Testing the TimeKeeper', () =>{
         expect(binarySeconds2).toEqual(binarySecondsControl2);
     })
 
+    it('returns the current date', () => {
+        let date = new Date();
+        expect(timeKeeper.currentDate).toEqual(date);
+    })
+
 
 })

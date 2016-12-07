@@ -1,5 +1,5 @@
 class ClockFace{
     constructor(){
-        console.log('i am clockface');
+        //console.log('i am clockface');
     }
 }
