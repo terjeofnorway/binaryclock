@@ -1,3 +1,33 @@
 body {
 
+  background-color: #111111;
+
+}
+
+.content {
+  position: relative;
+  width:50%;
+  height:auto;
+  background-color: #333333;
+  padding:2px;
+  margin:0 auto;
+
+  .row {
+    position:relative;
+    display: flex;
+    width:100%;
+
+    .block {
+      display: flex;
+      width:16.67%;
+      height:55px;
+      margin:4px;
+      background-color: #222222;
+      transition: background-color 0.5s;
+
+      &.on {
+        background-color: aqua;
+      }
+    }
+  }
 }
