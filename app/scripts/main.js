@@ -3,7 +3,7 @@
 class Application{
 
     constructor(){
-        this.timeHelper = new TimeKeeper();
+        this.timeKeeper = new TimeKeeper();
         this.clockFace = new ClockFace();
     }
 
@@ -12,13 +12,12 @@ class Application{
     }
 
     tick(){
-        var binaryMap = this.timeHelper.getBinaryMap();
+        let binaryMap = this.timeKeeper.getBinaryMap();
+        this.clockFace.updateClockFace(binaryMap);
 
-
-        this.timeHelper.tick();
+        this.timeKeeper.tick();
 
         setTimeout(this.tick.bind(this),1000);
-
     }
 }
 

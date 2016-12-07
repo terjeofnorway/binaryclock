@@ -29,10 +29,10 @@ class TimeKeeper{
 
     getBinaryMap() {
         let binaryClockMap = {
-            "hours":this.getBinaryHoursFromDate(this.currentDate),
-            "minutes":this.getBinaryMinutesFromDate(this.currentDate),
-            "seconds":this.getBinarySecondsFromDate(this.currentDate)
-        }
+            'hours':this.getBinaryHoursFromDate(this.currentDate),
+            'minutes':this.getBinaryMinutesFromDate(this.currentDate),
+            'seconds':this.getBinarySecondsFromDate(this.currentDate)
+        };
 
         return binaryClockMap;
     }
